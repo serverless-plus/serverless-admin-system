@@ -1,4 +1,4 @@
-# Admin System
+# Serverless Admin System
 
 [Demo](https://sls-admin.yugasun.com/)
 
@@ -7,13 +7,16 @@ This is an admin system developed by [Serverless Components](https://github.com/
 This template includes:
 
 - **Serverless RESTful API**: Using
-  [@serverless/tencent-egg](https://github.com/serverless-components/tencent-egg)
+  [egg](https://github.com/serverless-components/tencent-egg)
   component, it contains a Servelress Cloud Function and a single API Gateway
   endpoint.
 
 - **Serverless website using Vue.js**:
-  [@serverless/tencent-website](https://github.com/serverless-components/tencent-website),
+  [website](https://github.com/serverless-components/tencent-website) component,
   it deploys all static files to Cloud Object Storage, and config CDN domain.
+
+- **Serverless PostgreSQL**:
+  [postgresql](https://github.com/serverless-components/tencent-postgresql), it will help to create a serverless postgresql.
 
 > **Notice**: The frontend project is initialed by [@vue/cli](https://cli.vuejs.org/) which is official standard tooling for Vue.js development.
 
@@ -57,8 +60,7 @@ TENCENT_SECRET_ID=xxx
 TENCENT_SECRET_KEY=xxx
 
 REGION=ap-guangzhou
-VPC_ID=xxx
-SUBNET_ID=xxx
+ZONE=ap-guangzhou-2
 ```
 
 Install the NPM dependencies:
@@ -69,17 +71,25 @@ $ npm run bootstrap
 
 ### Deploy
 
+Before deployment, we should deploy layer for backend:
+
+```bash
+$ npm run deploy:be:layer
+```
+
+> Notice: after deploy backend layer once, you don't need deploy it again, unless you change npm dependencies for backend.
+
 Deploy via the `serverless` command:
 
 ```bash
-$ serverless deploy
+$ npm run deploy
 ```
 
 Use the `--debug` flag if you'd like to learn what's happening behind the
 scenes:
 
 ```bash
-$ serverless deploy --debug
+$ npm run deploy --debug
 ```
 
 ### Development
@@ -88,12 +98,12 @@ After your first deployment, you will be able to run the frontend locally and
 have it communicate to the live backend in the cloud.
 
 ```bash
-$ yarn start
+$ npm run start
 ```
 
 ### Notice
 
-Because this project, you should create a [MySQL](https://bash.cloud.tencent.com/cdb) and [Redis](https://bash.cloud.tencent.com/redis) on Tencent Cloud.
+Because this project, you should create a [Redis](https://bash.cloud.tencent.com/redis) on Tencent Cloud.
 
 And you should create a `.env` file in `backend`
 folder, and set all required parameters like `.env.example`.
