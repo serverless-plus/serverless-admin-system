@@ -15,20 +15,24 @@ inputs:
       - 'test/**'
       - 'node_modules/**'
   functionName: serverless-admin-system
-  # role: QCS_SCFFull # You must add a role who can connect to your clound mysql
+  runtime: Nodejs10.15
   layers:
     - name: ${output:${stage}:${app}:${name}-layer.name}
       version: ${output:${stage}:${app}:${name}-layer.version}
   functionConf:
     timeout: 120
-    # you must set vpc config for mysql connnect
     vpcConfig:
-      vpcId: ${env:VPC_ID}
-      subnetId: ${env:SUBNET_ID}
+      vpcId: ${output:${stage}:${app}:${app}-vpc.vpcId}
+      subnetId: ${output:${stage}:${app}:${app}-vpc.subnetId}
     environment:
       variables:
         NODE_ENV: production
         SERVERLESS: true
+        DB_HOST: ${output:${stage}:${app}:${app}-db.private.host}
+        DB_PORT: ${output:${stage}:${app}:${app}-db.private.port}
+        DB_NAME: ${output:${stage}:${app}:${app}-db.private.dbname}
+        DB_USER: ${output:${stage}:${app}:${app}-db.private.user}
+        DB_PASSWORD: ${output:${stage}:${app}:${app}-db.private.password}
   apigatewayConf:
     environment: release
     protocols:

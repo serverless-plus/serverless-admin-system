@@ -2,23 +2,15 @@
 
 'use strict';
 
-const path = require('path');
-// inject environment variables by dotenv
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({
-    path: path.join(__dirname, '..', '.env.local'),
-  });
-} else {
+const isLocal = process.env.EGG_SERVER_ENV === 'local';
+if (!isLocal) {
   require('dotenv').config();
 }
-
-console.log('process.env.DB_HOST', process.env.DB_HOST)
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
 module.exports = appInfo => {
-  const isLocal = appInfo.env === 'local';
   /**
    * built-in config
    * @type {Egg.EggAppConfig}
@@ -40,12 +32,11 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // TODO: should change to deploy url.
-    deployUrl: isLocal ? 'http://127.0.0.1:7001/' : 'https://service-duvw8ocm-1251556596.gz.apigw.tencentcs.com/release/',
-    authRedirectUrl: isLocal ? 'http://localhost:9528/#/login' : 'https://sls-admin.yugasun.com/#/login',
-    // myAppName: 'egg',
+    deployUrl: 'https://service-duvw8ocm-1251556596.gz.apigw.tencentcs.com/release/',
+    authRedirectUrl: 'https://sls-admin.yugasun.com/#/login',
     sequelize: {
       sync: true, // whether sync when app init
-      dialect: 'mysql',
+      dialect: 'postgres',
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
       database: process.env.DB_NAME,

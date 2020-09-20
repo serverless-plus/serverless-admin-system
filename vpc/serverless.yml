@@ -1,0 +1,12 @@
+org: slsplus
+app: admin-system
+stage: dev
+
+component: vpc
+name: admin-system-vpc
+
+inputs:
+  region: ${env:REGION}
+  zone: ${env:ZONE}
+  vpcName: ${name}
+  subnetName: ${name}

@@ -15,7 +15,7 @@
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^5.2.1",
     "koa-jwt2": "^1.0.3",
-    "mysql2": "^2.1.0",
+    "pg": "^8.3.3",
     "querystring": "^0.2.0"
   },
   "devDependencies": {
@@ -34,20 +34,13 @@
   },
   "scripts": {
     "docker:up": "docker-compose up",
-    "start": "egg-scripts start --daemon --title=admin-system",
-    "stop": "egg-scripts stop --title=admin-system",
-    "dev": "NODE_ENV=development egg-bin dev",
+    "dev": "EGG_SERVER_ENV=local NODE_ENV=development egg-bin dev",
     "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
     "lint": "eslint .",
     "db:migrate": "NODE_ENV=production sequelize db:migrate",
     "db:migrate:undo": "NODE_ENV=production sequelize db:migrate:undo:all",
     "db:migrate:test": "NODE_ENV=test sequelize db:migrate",
-    "db:migrate:test:undo": "NODE_ENV=test sequelize db:migrate:undo:all",
-    "ci": "npm run lint && npm run db:migrate:test && egg-bin cov",
-    "autod": "autod"
+    "db:migrate:test:undo": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "ci": {
     "version": "10"

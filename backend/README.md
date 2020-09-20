@@ -1,4 +1,4 @@
-# sequelize-project
+# Backend for serverless-admin-system
 
 ## QuickStart
 
@@ -8,7 +8,15 @@ see [egg docs][egg] for more detail.
 
 ### Local Development
 
-**Firstly, copy `.env.example` file to `.env`, and config for mysql and redis.**
+**Firstly, start local docker images for postgresql and redis.**
+
+```bash
+$ npm run docker:up
+```
+
+> Notice: docker must be installed.
+
+**Then, copy `.env.example` file to `.env.local`, and config for postgresql and redis.**
 
 ```bash
 $ npm i

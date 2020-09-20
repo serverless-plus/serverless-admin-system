@@ -11,4 +11,6 @@ const app = new Application({
   mode: 'single',
 });
 
+app.binaryTypes = [ '*/*' ];
+
 module.exports = app;

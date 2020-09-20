@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE, TEXT } = app.Sequelize;
 
   const Post = app.model.define('post', {
     id: {
@@ -9,8 +9,8 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
-    title: STRING(30),
-    content: STRING(255),
+    title: STRING(128),
+    content: TEXT,
     user_id: INTEGER,
     created_at: DATE,
     updated_at: DATE,

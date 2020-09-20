@@ -7,7 +7,9 @@
     "deploy": "serverless deploy --all",
     "deploy:fe": "serverless deploy --target=./frontend",
     "deploy:be": "serverless deploy --target=./backend",
-    "deploy:be:layer": "serverless deploy --target=./backend/layer"
+    "deploy:be:layer": "serverless deploy --target=./backend/layer",
+    "deploy:db": "serverless deploy --target=./db",
+    "deploy:vpc": "serverless deploy --target=./vpc"
   },
   "license": "MIT",
   "description": "Admin system developed by [Serverless Components](https://github.com/serverless/components)",

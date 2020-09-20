@@ -1,0 +1,15 @@
+org: slsplus
+app: admin-system
+stage: dev
+
+component: postgresql
+name: admin-system-db
+
+inputs:
+  region: ${env:REGION}
+  zone: ${env:ZONE}
+  dBInstanceName: ${name}
+  vpcConfig:
+    vpcId: ${output:${stage}:${app}:${app}-vpc.vpcId}
+    subnetId: ${output:${stage}:${app}:${app}-vpc.subnetId}
+  extranetAccess: true
