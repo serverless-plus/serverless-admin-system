@@ -1,6 +1,6 @@
 # Serverless Admin System
 
-[在线体验]](https://sls-admin.yugasun.com/)
+[在线体验](https://sls-admin.yugasun.com/)
 
 使用 [Serverless Components](https://github.com/serverless/components) 开发的后台管理系统
 
