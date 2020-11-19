@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "bootstrap": "node scripts/bootstrap.js",
-    "dev": "cd frontend && npm run dev",
+    "docker:up": "cd backend && npm run docker:up",
+    "dev:be": "cd backend && npm run dev",
+    "dev:fe": "cd frontend && npm run dev",
     "deploy": "serverless deploy --all",
     "deploy:fe": "serverless deploy --target=./frontend",
     "deploy:be": "serverless deploy --target=./backend",
@@ -13,10 +15,6 @@
   },
   "license": "MIT",
   "description": "Admin system developed by [Serverless Components](https://github.com/serverless/components)",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yugasun/serverless-admin-system.git"
-  },
   "keywords": [
     "admin-system",
     "serverless",
@@ -24,8 +22,15 @@
     "serverless-components"
   ],
   "author": "yugasun",
-  "bugs": {
-    "url": "https://github.com/yugasun/serverless-admin-system/issues"
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverless-plus/serverless-admin-system.git"
   },
-  "homepage": "https://github.com/yugasun/serverless-admin-system#readme"
+  "bugs": {
+    "url": "https://github.com/serverless-plus/serverless-admin-system/issues"
+  },
+  "homepage": "https://github.com/serverless-plus/serverless-admin-system#readme"
 }

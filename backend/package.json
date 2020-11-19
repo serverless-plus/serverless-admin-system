@@ -33,14 +33,14 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "docker:up": "docker-compose up",
+    "docker:up": "docker-compose up -d",
     "dev": "EGG_SERVER_ENV=local NODE_ENV=development egg-bin dev",
     "debug": "egg-bin debug",
     "lint": "eslint .",
-    "db:migrate": "NODE_ENV=production sequelize db:migrate",
-    "db:migrate:undo": "NODE_ENV=production sequelize db:migrate:undo:all",
-    "db:migrate:test": "NODE_ENV=test sequelize db:migrate",
-    "db:migrate:test:undo": "NODE_ENV=test sequelize db:migrate:undo:all"
+    "db:migrate": "NODE_ENV=production sequelize db:migrate --config database/config.js",
+    "db:migrate:undo": "NODE_ENV=production sequelize db:migrate:undo:all --config database/config.js",
+    "db:migrate:test": "NODE_ENV=test sequelize db:migrate --config database/config.js",
+    "db:migrate:test:undo": "NODE_ENV=test sequelize db:migrate:undo:all --config database/config.js"
   },
   "ci": {
     "version": "10"

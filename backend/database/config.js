@@ -2,19 +2,20 @@
 
 module.exports = {
   production: {
-    username: 'root',
+    // TODO: 修改为部署 serverless postgresql 的 public 配置
+    host: 'postgres-xxx.sql.tencentcdb.com',
+    post: 5432,
+    username: 'tencentdb_xxx',
     password: 'xxx',
-    database: 'egg_sequelize_dev',
-    host: 'localhost',
-    post: 3306,
-    dialect: 'mysql',
+    database: 'tencentdb_xxx',
+    dialect: 'postgres',
   },
   test: {
     username: 'root',
-    password: 'xxx',
-    database: 'egg_sequelize_test',
-    host: 'localhost',
-    post: 3306,
-    dialect: 'mysql',
+    password: 'root',
+    database: 'admin-system',
+    host: '127.0.0.1',
+    post: 5432,
+    dialect: 'postgres',
   },
 };
