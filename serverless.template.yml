@@ -1,0 +1,21 @@
+name: admin-system
+author: Serverless Plus
+org: Serverless Plus
+description: Deploy an admin system application
+description-i18n:
+  zh-cn: 快速部署一个基于后台管理系统,  egg.js + postgres + vue.js
+keywords: tencent, serverless, egg.js, vue.js, postgresql
+repo: https://github.com/serverless-plus/serverless-admin-system/tree/master
+readme: https://github.com/serverless-plus/serverless-admin-system/tree/master/README.md
+license: MIT
+src:
+  src: ./
+  exclude:
+    - '.env'
+    - '.git/**'
+    - '**/node_modules'
+    - '**/package-lock.json'
+    - '**/yarn.lock'
+    - '.DS_Store'
+  include:
+    - '.env.example'
