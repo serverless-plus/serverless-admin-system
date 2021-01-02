@@ -114,6 +114,8 @@ $ npm run deploy:be:layer
 $ npm run deploy
 ```
 
+### 初始化数据库
+
 部署成功后，我们就可以获得数据库相关参数，其中 postgresql 输出的 `public` 对象中的参数是用来公网访问的。
 
 在访问服务前，我们还需要同步数据库表结构，修改 `database/config.js` 中的 `production` 对象的配置为 postgresql 输出的 `public` 对象中的参数值，
